@@ -1,0 +1,40 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --x-color: #0890d9;
+    --o-color: #ff2e43;
+    --board-color: #191528;
+    --primary-color: #5c162e;
+    --accent-color: #b52345;
+    --background-color: rgb(246, 246, 246);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --x-color: #0890d9;
+    --o-color: #ff2e43;
+    --primary-color: #5c162e;
+    --accent-color: #b52345;
+    --background-color: #191528;
+    --board-color: rgb(246, 246, 246);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 65.2%;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
