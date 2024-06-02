@@ -25,6 +25,7 @@ function clearBoard() {
   for (let node of grid.children) {
     node.innerHTML = '';
     node.value = '';
+    node.className = 'board__cell';
   }
 }
 

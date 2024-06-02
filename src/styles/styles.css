@@ -3,11 +3,6 @@ h1 {
   color: var(--board-color);
 }
 
-.winner-label--anim {
-  transform: translateY(15px);
-  transition: transform ease-in 0.5s 1s;
-}
-
 .turn-label,
 .winner-label {
   display: none;
@@ -86,7 +81,7 @@ h1 {
   .cross__left {
     rotate: -90deg;
     div {
-      animation-delay: 0.5s;
+      animation-delay: 0.3s;
     }
   }
 }
