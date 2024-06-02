@@ -41,3 +41,9 @@ main {
   justify-items: center;
   align-content: center;
 }
+
+@media (orientation: landscape) and (max-height: 599px) {
+  main {
+    height: auto;
+  }
+}
