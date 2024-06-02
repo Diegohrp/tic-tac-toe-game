@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/animations.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
+    <script defer src="./GUIFeatures.js"></script>
     <script defer src="./main.js"></script>
     <title>Tic-Tac-Toe</title>
   </head>
@@ -23,20 +24,13 @@
             class="board__cell"
             id="00"
             onclick="handleOnClick({row:0,col:0})"
-          >
-            <div class="cross">
-              <div class="cross__left"><div></div></div>
-              <div class="cross__right"><div></div></div>
-            </div>
-          </button>
+          ></button>
           <button
             aria-label="Cell at row 0, column 1"
             class="board__cell"
             id="01"
             onclick="handleOnClick({row:0,col:1})"
-          >
-            <div class="circle"></div>
-          </button>
+          ></button>
           <button
             aria-label="Cell at row 0, column 2"
             class="board__cell"

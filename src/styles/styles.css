@@ -103,18 +103,6 @@ h1 {
   background: var(--background-color);
 }
 
-@keyframes button-color {
-  0% {
-    background-color: var(--primary-color);
-  }
-  50% {
-    background-color: var(--accent-color);
-  }
-  100% {
-    background-color: var(--primary-color);
-  }
-}
-
 .reset-btn {
   background-color: var(--primary-color);
   height: 40px;
