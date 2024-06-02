@@ -2,26 +2,44 @@ h1 {
   font-size: 3rem;
   color: var(--board-color);
 }
-.turn-label {
+
+.winner-label--anim {
+  transform: translateY(15px);
+  transition: transform ease-in 0.5s 1s;
+}
+
+.turn-label,
+.winner-label {
+  display: none;
+  margin: 20px 0;
+  height: 30px;
   font-size: 2.5rem;
   color: var(--board-color);
+  .X {
+    color: var(--x-color);
+  }
+  .O {
+    color: var(--o-color);
+  }
 }
 
 .board {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 30px 0;
 
   .board__grid {
     background-color: var(--board-color);
-    width: 350px;
+    width: 90%;
+    max-width: 350px;
     height: 350px;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: repeat(3, minmax(50px, 1fr));
 
-    button {
+    .board__cell {
       background-color: var(--background-color);
       cursor: pointer;
       display: flex;
@@ -29,6 +47,16 @@ h1 {
       align-items: center;
       border: none;
       outline: none;
+    }
+
+    .board__cell--highlight {
+      background-color: var(--highlight-cell-color);
+      outline: none;
+      border: none;
+      transition: background-color 0.3s ease;
+      div::before {
+        background-color: var(--highlight-cell-color);
+      }
     }
   }
 }
@@ -51,7 +79,7 @@ h1 {
       width: 8px;
       height: 100%;
       background-color: var(--x-color);
-      animation: x-draw 1s ease-in forwards;
+      animation: x-draw 0.8s ease-in forwards;
       transform-origin: top;
     }
   }
@@ -69,7 +97,7 @@ h1 {
   border-radius: 50%;
   aspect-ratio: 1;
   position: relative;
-  animation: draw-o 0.8s linear normal forwards;
+  animation: draw-o 0.5s linear normal forwards;
 }
 
 .circle::before {
@@ -98,6 +126,7 @@ h1 {
   width: 200px;
   border-radius: 8px;
   border: none;
+  margin-top: 20px;
   font-size: 1.6rem;
   color: white;
   cursor: pointer;

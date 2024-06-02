@@ -6,6 +6,7 @@
     --primary-color: #5c162e;
     --accent-color: #b52345;
     --background-color: rgb(246, 246, 246);
+    --highlight-cell-color: rgb(209, 209, 209);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -16,6 +17,7 @@
     --accent-color: #b52345;
     --background-color: #191528;
     --board-color: rgb(246, 246, 246);
+    --highlight-cell-color: #09070e;
   }
 }
 
@@ -33,8 +35,8 @@ main {
   width: 100vw;
   height: 100vh;
   background-color: var(--background-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+
+  justify-items: center;
+  align-content: center;
 }

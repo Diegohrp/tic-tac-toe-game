@@ -13,34 +13,66 @@
   <body>
     <main>
       <h1>Tic Tac Toe</h1>
-      <h2 class="winner-label">Ganador es:</h2>
-      <h2 class="turn-label">
-        It's
-        <span>X</span>
-        turn
-      </h2>
+      <h2 class="winner-label"></h2>
+      <h2 class="turn-label"></h2>
       <section class="board">
         <article id="board" class="board__grid">
-          <button id="1" onclick="handleOnClick({row:0,col:0,id:1})">
+          <button
+            class="board__cell"
+            id="00"
+            onclick="handleOnClick({row:0,col:0})"
+          >
             <div class="cross">
               <div class="cross__left"><div></div></div>
               <div class="cross__right"><div></div></div>
             </div>
           </button>
-          <button id="2" onclick="handleOnClick({row:0,col:1,id:2})">
+          <button
+            class="board__cell"
+            id="01"
+            onclick="handleOnClick({row:0,col:1})"
+          >
             <div class="circle"></div>
           </button>
-          <button id="3" onclick="handleOnClick({row:0,col:2,id:3})"></button>
-          <button id="4" onclick="handleOnClick({row:1,col:0,id:4})"></button>
-          <button id="5" onclick="handleOnClick({row:1,col:1,id:5})"></button>
-          <button id="6" onclick="handleOnClick({row:1,col:2,id:6})"></button>
-          <button id="7" onclick="handleOnClick({row:2,col:0,id:7})"></button>
-          <button id="8" onclick="handleOnClick({row:2,col:1,id:8})"></button>
-          <button id="9" onclick="handleOnClick({row:2,col:2,id:9})"></button>
+          <button
+            class="board__cell"
+            id="02"
+            onclick="handleOnClick({row:0,col:2})"
+          ></button>
+          <button
+            class="board__cell"
+            id="10"
+            onclick="handleOnClick({row:1,col:0})"
+          ></button>
+          <button
+            class="board__cell"
+            id="11"
+            onclick="handleOnClick({row:1,col:1})"
+          ></button>
+          <button
+            class="board__cell"
+            id="12"
+            onclick="handleOnClick({row:1,col:2})"
+          ></button>
+          <button
+            class="board__cell"
+            id="20"
+            onclick="handleOnClick({row:2,col:0})"
+          ></button>
+          <button
+            class="board__cell"
+            id="21"
+            onclick="handleOnClick({row:2,col:1})"
+          ></button>
+          <button
+            class="board__cell"
+            id="22"
+            onclick="handleOnClick({row:2,col:2})"
+          ></button>
         </article>
       </section>
       <section>
-        <button class="reset-btn">Reset Game</button>
+        <button class="reset-btn" onclick="initialState()">Reset Game</button>
       </section>
     </main>
   </body>

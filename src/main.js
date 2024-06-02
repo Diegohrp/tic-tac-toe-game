@@ -1,4 +1,6 @@
-const label = document.querySelector('.winner-label');
+const winnerLabel = document.querySelector('.winner-label');
+const turnLabel = document.querySelector('.turn-label');
+const grid = document.querySelector('.board__grid');
 
 let winner;
 let gameData;
@@ -7,6 +9,8 @@ let turnCounter;
 
 function initialState() {
   clearBoard();
+  winnerLabel.style = 'display:none';
+  drawTurnLabel('X');
   winner = null;
   isXNext = true;
   turnCounter = 0;
@@ -18,9 +22,9 @@ function initialState() {
 }
 
 function clearBoard() {
-  const grid = document.querySelector('.board__grid');
   for (let node of grid.children) {
-    node.textContent = '';
+    node.innerHTML = '';
+    node.value = '';
   }
 }
 
@@ -52,25 +56,45 @@ const draw = ({ node, figure }) => {
   }
 };
 
-const handleOnClick = ({ row, col, id }) => {
-  const button = document.getElementById(id);
+const drawTurnLabel = (player) => {
+  turnLabel.style = 'display:block';
+  turnLabel.innerHTML = `It's <span class="${player}">${player}</span>'s turn`;
+};
+
+const drawWinnerLable = (player) => {
+  turnLabel.innerHTML = '';
+  turnLabel.style = 'display:none';
+  winnerLabel.style =
+    'display:block;animation: winner-label-anim 0.8s ease-in forwards;';
+  if (player) {
+    winnerLabel.innerHTML = `Player <span class="${player}">${player}</span> Wins!`;
+  } else {
+    winnerLabel.innerHTML = 'Draw!';
+  }
+};
+
+const handleOnClick = ({ row, col }) => {
+  const button = document.getElementById(`${row}${col}`);
   const value = isXNext ? figures.X : figures.O;
 
   if (!button.value && !winner && turnCounter < 9) {
+    drawTurnLabel(value);
     button.value = value;
     draw({ node: button, figure: value });
     // value 1 for "X", -1 for "O"
     if (currentPlayerWins({ row, col, value: isXNext ? 1 : -1 })) {
-      label.textContent = `El ganador es: ${value}`;
       winner = true;
+      drawWinnerLable(value);
+      highLightCells({ row, col });
       return;
     }
     isXNext = !isXNext;
+    drawTurnLabel(isXNext ? figures.X : figures.O);
     turnCounter++;
   }
   //Drawn when there is no more available turns and nobody has won.
   if (turnCounter >= 9) {
-    label.textContent = 'Drawn!';
+    drawWinnerLable();
   }
 };
 
@@ -90,6 +114,46 @@ const currentPlayerWins = ({ row, col, value }) => {
     Math.abs(diag[0]) === 3 ||
     Math.abs(diag[1]) === 3
   );
+};
+
+const highLightCells = ({ row, col }) => {
+  const { rows, cols, diag } = gameData;
+
+  if (Math.abs(rows[row]) === 3) {
+    for (let node of grid.children) {
+      if (node.id.charAt(0) === `${row}`) {
+        node.className = 'board__cell--highlight';
+      }
+    }
+    return;
+  }
+
+  if (Math.abs(cols[col]) === 3) {
+    for (let node of grid.children) {
+      if (node.id.charAt(1) === `${col}`) {
+        node.className = 'board__cell--highlight';
+      }
+    }
+    return;
+  }
+
+  if (Math.abs(diag[0]) === 3) {
+    for (let node of grid.children) {
+      if (node.id.charAt(0) === node.id.charAt(1)) {
+        node.className = 'board__cell--highlight';
+      }
+    }
+    return;
+  }
+
+  if (Math.abs(diag[1]) === 3) {
+    for (let node of grid.children) {
+      if (node.id.charAt(0) === `${2 - parseInt(node.id.charAt(1))}`) {
+        node.className = 'board__cell--highlight';
+      }
+    }
+    return;
+  }
 };
 
 initialState();
