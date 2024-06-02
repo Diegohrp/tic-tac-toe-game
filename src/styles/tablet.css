@@ -1,0 +1,27 @@
+@media (min-width: 800px) and (min-height: 1100px) {
+  .board {
+    margin: 100px 0;
+    .board__grid {
+      width: 90%;
+      max-width: 600px;
+      height: 600px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      grid-template-rows: repeat(3, minmax(100px, 1fr));
+    }
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  .winner-label,
+  .turn-label {
+    font-size: 4rem;
+  }
+
+  .reset-btn {
+    font-size: 3rem;
+    height: 60px;
+    width: 300px;
+  }
+}

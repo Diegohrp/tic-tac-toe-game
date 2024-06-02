@@ -46,8 +46,6 @@ h1 {
 
     .board__cell--highlight {
       background-color: var(--highlight-cell-color);
-      outline: none;
-      border: none;
       transition: background-color 0.3s ease;
       div::before {
         background-color: var(--highlight-cell-color);
@@ -115,5 +113,21 @@ h1 {
   cursor: pointer;
   &:hover {
     animation: button-color 1.2s ease-out infinite;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 20px;
+  font-size: 1.8rem;
+  p {
+    color: var(--board-color);
+    a {
+      color: var(--o-color);
+      &:hover {
+        color: var(--x-color);
+      }
+    }
   }
 }

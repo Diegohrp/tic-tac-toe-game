@@ -60,7 +60,7 @@ const highLightCells = ({ row, col }) => {
   if (Math.abs(rows[row]) === 3) {
     for (let node of grid.children) {
       if (node.id.charAt(0) === `${row}`) {
-        node.className = 'board__cell--highlight';
+        node.classList.add('board__cell--highlight');
       }
     }
     return;
@@ -69,7 +69,7 @@ const highLightCells = ({ row, col }) => {
   if (Math.abs(cols[col]) === 3) {
     for (let node of grid.children) {
       if (node.id.charAt(1) === `${col}`) {
-        node.className = 'board__cell--highlight';
+        node.classList.add('board__cell--highlight');
       }
     }
     return;
@@ -78,7 +78,7 @@ const highLightCells = ({ row, col }) => {
   if (Math.abs(diag[0]) === 3) {
     for (let node of grid.children) {
       if (node.id.charAt(0) === node.id.charAt(1)) {
-        node.className = 'board__cell--highlight';
+        node.classList.add('board__cell--highlight');
       }
     }
     return;
@@ -87,7 +87,7 @@ const highLightCells = ({ row, col }) => {
   if (Math.abs(diag[1]) === 3) {
     for (let node of grid.children) {
       if (node.id.charAt(0) === `${2 - parseInt(node.id.charAt(1))}`) {
-        node.className = 'board__cell--highlight';
+        node.classList.add('board__cell--highlight');
       }
     }
     return;

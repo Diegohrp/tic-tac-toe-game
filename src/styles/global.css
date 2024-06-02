@@ -36,7 +36,7 @@ body {
 
 main {
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: grid;
   justify-items: center;
   align-content: center;
